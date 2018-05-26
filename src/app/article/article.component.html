@@ -1,0 +1,17 @@
+<div *ngIf="article">
+  <div fxLayout="row">
+    <h1 fxFlex="1 0 1">{{ article.title }}</h1>
+    <a routerLink="/articles"><mat-icon>close</mat-icon></a>
+  </div>
+  <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="1em">
+    <div *ngIf="article.image" fxFlex="1 0 0.5">
+      <img [ngStyle]="{width: '100%'}" src="{{article.image}}" />
+    </div>
+    <ngx-md fxFlex="1 0 0.5">{{ article.content }}</ngx-md>
+  </div>
+  <mat-chip-list>
+    <mat-chip *ngFor="let tag of article.tags" [routerLink]="['/tag', tag._id]">{{tag.label}}</mat-chip>
+  </mat-chip-list>
+  <mat-icon class="mat-icon-rtl-mirror" svgIcon="thumb-up"></mat-icon>
+  <mat-icon>mood</mat-icon>
+</div>

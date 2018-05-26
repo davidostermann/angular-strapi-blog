@@ -1,0 +1,9 @@
+<h1 class="mat-h1">Articles</h1>
+
+<ul>
+  <li *ngFor="let art of articles">
+    <!-- <a [routerLink]="['/articles', art.id]">{{ art.title }}</a> -->
+    <!-- <a [routerLink]="'/articles/' + art.id">{{ art.title }}</a> -->
+    <a routerLink="{{'/articles/' + art.id}}">{{ art.title }}</a>
+  </li>
+</ul>
